@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: sentinel-rag-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: sentinel-user
+      POSTGRES_PASSWORD: sentinel-password
+      POSTGRES_DB: sentinel-rag
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data
+
+volumes: 
+  postgres_data:
